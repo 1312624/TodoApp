@@ -36,8 +36,7 @@ export default class AddModal extends Component {
             .end(function (err, res) {
                 let date = new Date(res.body.created_at);
                 let created_at = date.toLocaleDateString() + ' - ' + date.toLocaleTimeString();
-                res.body.created_at = created_at;
-                self.props.addNewItem(res.body);
+                self.props.addNewItem({...res.body, created_at});
             });
     }
 
