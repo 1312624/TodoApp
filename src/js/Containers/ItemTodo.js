@@ -13,7 +13,7 @@ export default class Item extends Component {
                 <div class="panel panel-default col-md-6">
                     <div class="panel-heading">
                         {this.props.title}
-                        {this.props.created_at}
+                        <p>{this.props.created_at}</p>
                     </div>
                     <div class="panel-body">{this.props.content}</div>
                 </div>
