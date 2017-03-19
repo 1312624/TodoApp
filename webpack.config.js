@@ -34,15 +34,15 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 options: {
-                    plugins: ['transform-decorators-legacy','react-hot-loader/babel', 'react-html-attrs'],
+                    plugins: ['transform-decorators-legacy', 'react-hot-loader/babel', 'react-html-attrs'],
                 },
                 exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
                 use: ["style-loader" // creates style nodes from JS strings
-                     ,"css-loader" // translates CSS into CommonJS
-                     ,"sass-loader" // compiles Sass to CSS
+                    , "css-loader" // translates CSS into CommonJS
+                    , "sass-loader" // compiles Sass to CSS
                 ]
             }
         ]
@@ -52,11 +52,18 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin(
             {
                 sourceMap: true,
-                compress : {
-                    warnings : false
+                compress: {
+                    warnings: false
                 }
             }
         ),
+
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
+        
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
         new webpack.NamedModulesPlugin(),

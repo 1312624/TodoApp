@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Category from '../Containers/Category';
 
 export default class IndexPage extends Component {
     constructor(props) {
@@ -7,9 +8,8 @@ export default class IndexPage extends Component {
 
     render() {
         return (
-            <div>
-                <div>This is IndexPage</div>
-                <button class="btn btn-primary">Button</button>
+            <div class="container">
+                <Category />
             </div>
         );
     }
